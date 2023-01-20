@@ -1,0 +1,74 @@
+<resources>
+
+    <string name="app_name">SNTSikkimEBTM</string>
+    <string name="TOKEN">C7B21607E40B96E142889B56354089DA92A12A34</string>
+    <string name="Sikkim_local_database_name">sikkim_db</string>
+
+    <string name="data_is_updating">Data is updating \nDon\'t press the back button</string>
+    <string name="please_wait">Please wait....</string>
+    <string name="operator_login">Operator Login</string>
+    <string name="snt_parichalak">SNT Parichalak</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="parichalak">Parichalak</string>
+    <string name="starbus">StarBus*</string>
+
+    <string name="CheckInternet">Check your internet connection</string>
+    <string name="invalid_user_id">Invalid user id !</string>
+    <string name="invalid_password">Invalid password !</string>
+    <string name="data_downloading">Data Downloading</string>
+    <string name="next">Next</string>
+    <string name="waybill_assignment">Waybill Assignment</string>
+    <string name="fare_stations">Fare Stations</string>
+    <string name="routes_stations">Routes Stations</string>
+    <string name="concession">Concession</string>
+    <string name="routes">Routes</string>
+    <string name="operator_details">Operator Details</string>
+    <string name="name">Name :</string>
+    <string name="depot_name">Depot :</string>
+    <string name="user_role_name">Role :</string>
+    <string name="assign">Assign</string>
+    <string name="enter_way_bill_no">Enter way bill no</string>
+    <string name="proceed">Proceed</string>
+    <string name="way_bill_no">Way bill no.</string>
+    <string name="bus_no">Bus no.</string>
+    <string name="depart_time">Depart time</string>
+    <string name="route_name">Route Name</string>
+    <string name="depart_date">Depart date</string>
+    <string name="conductor_name">Conductor</string>
+    <string name="driver_name">Driver name</string>
+    <string name="total_trips">Total trips</string>
+    <string name="cancel_way_bill">Cancel way bill</string>
+    <string name="are_you_sure">Are you sure .</string>
+    <string name="do_you_want_to_cancel_this_way_bill">Do you want to cancel this way bill ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="na">--NA--</string>
+    <string name="start_trip">Start Trip</string>
+    <string name="online_booking">Online Booking </string>
+    <string name="_00_00_am">00:00 AM</string>
+    <string name="pending">Pending</string>
+    <string name="waybill_trips">Waybill trips</string>
+    <string name="create_trip">CREATE TRIP</string>
+    <string name="create_another_trip">Create another trip</string>
+    <string name="do_you_want_create_your_own_trip">Do you want create your own trip ?</string>
+    <string name="select_routes">Select Routes</string>
+    <string name="dehradun_to_delhi_isbt_via_haridwar">DEHRADUN TO DELHI ISBT VIA HARIDWAR</string>
+    <string name="crate_trip">Create Trip</string>
+    <string name="from_station">From Station</string>
+    <string name="to_station">To Station</string>
+    <string name="forward">Forward</string>
+    <string name="inward">Inward</string>
+    <string name="select_station">Select Station</string>
+    <string name="conductor_dashboard">Conductor Dashboard</string>
+    <string name="passenger">PASSENGER</string>
+    <string name="lug">LUG</string>
+    <string name="general_and_child_ticket">GENERAL AND CHILD TICKET</string>
+    <string name="dehradun_isbt">DEHRADUN ISBT</string>
+    <string name="to">TO</string>
+    <string name="delhi_kashmiri_gate">DELHI KASHMIRI GATE</string>
+    <string name="total_fare">Total Fare    :</string>
+    <string name="km">           KM    :</string>
+
+</resources>

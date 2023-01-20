@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+
+        <ImageView
+            android:id="@+id/cross_IV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/cros"
+            android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/from_to_station_TV"
+        android:layout_marginRight="15dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/nunito_sans"
+        android:gravity="center"
+        android:text="@string/select_station"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/cross_IV"
+        app:layout_constraintStart_toStartOf="@+id/cross_IV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/current_location_LL"
+        android:layout_width="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="@id/cross_IV"
+        app:layout_constraintEnd_toEndOf="@id/from_to_station_TV"
+        app:layout_constraintTop_toBottomOf="@id/from_to_station_TV">
+
+        <ImageView
+            android:layout_marginLeft="15dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/back_icon"/>
+
+        <TextView
+            android:id="@+id/current_from_to_station_TV"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_sans"
+            android:textColor="@color/color_primary"
+            android:textSize="18sp"
+            android:text="Use Current Location" />
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="3dp"
+        android:visibility="gone"
+        android:id="@+id/to_station_list_RV"
+        android:layout_marginTop="15dp"
+        tools:listitem="@layout/station_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_to_station_TV"
+        app:layout_constraintStart_toStartOf="@id/cross_IV"
+        app:layout_constraintEnd_toEndOf="@id/from_to_station_TV"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="3dp"
+        android:visibility="gone"
+        android:id="@+id/from_station_list_RV"
+        android:layout_marginTop="15dp"
+        tools:listitem="@layout/station_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_to_station_TV"
+        app:layout_constraintStart_toStartOf="@id/cross_IV"
+        app:layout_constraintEnd_toEndOf="@id/from_to_station_TV"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

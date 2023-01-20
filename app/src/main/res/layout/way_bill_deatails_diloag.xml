@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/way_no_headline_TV"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/way_bill_no"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/way_bill_no_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/way_no_headline_TV"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="546789056789"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/bus_no_headline_TV"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/bus_no"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/bus_no_TV"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/bus_no_headline_TV"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="UK 13 PA 6677"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:id="@+id/date_headline_TV"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/way_bill_no_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/depart_date"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/depart_date_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/date_headline_TV"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="14/12/2022"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:id="@+id/depart_time_headline_TV"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/way_bill_no_TV"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/depart_time"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/depart_time_TV"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/depart_time_headline_TV"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="12:00 Am"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:id="@+id/route_headline_TV"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/depart_date_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/route_name"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+
+<!--            <TextView-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:id="@+id/route_name_TV"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/route_headline_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_width="0dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:text="@string/route_name"-->
+<!--                android:fontFamily="@font/nunito_sans"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/assign_way_bill_BT"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/route_name_TV"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:text="@string/assign"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

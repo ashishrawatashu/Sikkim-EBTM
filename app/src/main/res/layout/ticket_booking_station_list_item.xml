@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:id="@+id/station_name_CL"
+    android:layout_height="65dp"
+    android:background="@drawable/button_border">
+
+    <TextView
+        android:id="@+id/station_name_TV"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="CHANDIGHAR ISBT SECTOR 43"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito_sans"
+        android:textSize="12sp"
+        android:textFontWeight="700"
+        android:layout_height="match_parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
