@@ -7,7 +7,7 @@
     <string name="data_is_updating">Data is updating \nDon\'t press the back button</string>
     <string name="please_wait">Please wait....</string>
     <string name="operator_login">Operator Login</string>
-    <string name="snt_parichalak">SNT Parichalak</string>
+    <string name="snt_parichalak">StarBus* Parichalak</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -70,5 +70,7 @@
     <string name="delhi_kashmiri_gate">DELHI KASHMIRI GATE</string>
     <string name="total_fare">Total Fare    :</string>
     <string name="km">           KM    :</string>
+    <string name="do_yoy_want_to_assign_this_waybill">Do you want to assign this waybill ?</string>
+    <string name="select_one_trip_to_start_your_journey">Select one trip to start your journey</string>
 
 </resources>

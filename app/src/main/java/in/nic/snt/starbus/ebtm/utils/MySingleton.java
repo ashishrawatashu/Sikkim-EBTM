@@ -1,12 +1,5 @@
 package in.nic.snt.starbus.ebtm.utils;
 
-
-import androidx.room.Room;
-
-import in.nic.snt.starbus.ebtm.R;
-import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineStatusDao;
-
 public class MySingleton {
         private static MySingleton mySingleton;
         public static MySingleton getInstance() {
@@ -16,6 +9,7 @@ public class MySingleton {
         }
 
         public MySingleton() {
+
         }
 
         public String IMEI = "48112765";

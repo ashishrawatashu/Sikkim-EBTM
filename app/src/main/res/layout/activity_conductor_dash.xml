@@ -39,6 +39,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:fontFamily="@font/nunito_sans"
+            android:textFontWeight="600"
+            android:layout_margin="5dp"
+            android:text="@string/select_one_trip_to_start_your_journey"
+            />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listViewTrips"
@@ -202,9 +213,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
+                    android:backgroundTint="@color/red"
                     android:weightSum="2"
                     android:text="@string/create_trip"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="60dp"/>
 
 
             </LinearLayout>

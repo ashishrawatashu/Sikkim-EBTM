@@ -29,6 +29,7 @@ import in.nic.snt.starbus.ebtm.api.ApiClient;
 import in.nic.snt.starbus.ebtm.api.ApiResponse;
 import in.nic.snt.starbus.ebtm.api.ApiService;
 import in.nic.snt.starbus.ebtm.databinding.ActivityWayBillAssignmentBinding;
+import in.nic.snt.starbus.ebtm.databinding.AssignWayBillConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.databinding.CancelWayBillConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.response.getWayBillDetailsResponse.GetWaybillDetailsResponse;
 import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
@@ -46,13 +47,22 @@ import in.nic.snt.starbus.ebtm.utils.CommonMethods;
 import retrofit2.Response;
 
 public class WayBillAssignmentActivity extends AppCompatActivity implements ApiResponse , View.OnClickListener {
+
     private ActivityWayBillAssignmentBinding activityWayBillAssignmentBinding;
     private CommonMethods commonMethods;
     private AppDatabase db;
     private GetWaybillDetailsResponse getWaybillDetailsResponse;
+
+
     private CancelWayBillConfirmationDialogBinding cancelWayBillConfirmationDialogBinding;
     private BottomSheetDialog cancelConfirmationBottomSheet;
+
+    private AssignWayBillConfirmationDialogBinding assignWayBillConfirmationDialogBinding;
+    private BottomSheetDialog assignConfirmationBottomSheet;
+
+
     boolean exit = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +80,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
     }
 
     private void initMethod() {
+
         activityWayBillAssignmentBinding.wayBillNoET.requestFocus();
         activityWayBillAssignmentBinding.proceedWaybillBT.setOnClickListener(this);
         activityWayBillAssignmentBinding.cardCancelWayBillBT.setOnClickListener(this);
@@ -134,7 +145,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                         setWayBillData();
 
                     }else {
-                        Toast.makeText(this, "Something went wrong !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Something went wrong !", Toast.LENGTH_LONG).show();
                     }
 
                 }catch (Exception e){
@@ -268,7 +279,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                 String wayBillNO = activityWayBillAssignmentBinding.wayBillNoET.getText().toString().trim();
                 if (wayBillNO.isEmpty()){
                     activityWayBillAssignmentBinding.wayBillNoET.setError("Enter way bill no...");
-                    Toast.makeText(this, "Please enter way bill no !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Please enter way bill no !", Toast.LENGTH_LONG).show();
                 } else {
                     getWayBillDetails(wayBillNO);
                 }
@@ -276,6 +287,22 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                 break;
 
             case R.id.assign_way_bill_BT:
+
+                showAssignWayBillConfirmationDialog();
+
+                break;
+
+
+            case R.id.card_cancel_way_bill_BT:
+
+                showCancelConfirmationDialog();
+
+
+                break;
+
+
+            case R.id.assign_yes_RL:
+
                 commonMethods.showCustomProgressBarDialog(this);
                 //insertWayBillData
                 insertWayBillData(getWaybillDetailsResponse);
@@ -289,15 +316,8 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                 setMachineCurrentStatus();
                 activityWayBillAssignmentBinding.wayBillDetailsLL.setVisibility(View.VISIBLE);
                 activityWayBillAssignmentBinding.wayBillDetailsMCV.setVisibility(View.GONE);
-                Toast.makeText(this, "Waybill assign successfully ", Toast.LENGTH_SHORT).show();
-
-                break;
-
-
-            case R.id.card_cancel_way_bill_BT:
-
-                showCancelConfirmationDialog();
-
+                assignConfirmationBottomSheet.dismiss();
+                Toast.makeText(this, "Waybill assign successfully ", Toast.LENGTH_LONG).show();
 
                 break;
 
@@ -312,9 +332,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                 activityWayBillAssignmentBinding.wayBillDetailsMCV.setVisibility(View.GONE);
                 activityWayBillAssignmentBinding.wayBillDetailsLL.setVisibility(View.GONE);
                 cancelConfirmationBottomSheet.dismiss();
-                Toast.makeText(this, "Machine is fresh now ", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(this, "Machine is fresh now ", Toast.LENGTH_LONG).show();
 
                 break;
 
@@ -332,6 +350,26 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
                 break;
 
         }
+
+
+    }
+
+    private void showAssignWayBillConfirmationDialog() {
+
+        assignConfirmationBottomSheet = new BottomSheetDialog(this);
+        assignConfirmationBottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        assignConfirmationBottomSheet.setCancelable(true);
+        assignConfirmationBottomSheet.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        assignWayBillConfirmationDialogBinding = AssignWayBillConfirmationDialogBinding.inflate(LayoutInflater.from(this));
+        assignConfirmationBottomSheet.setContentView(assignWayBillConfirmationDialogBinding.getRoot());
+
+        assignWayBillConfirmationDialogBinding.assignNoRL.setOnClickListener(this);
+        assignWayBillConfirmationDialogBinding.assignYesRL.setOnClickListener(this);
+
+        assignConfirmationBottomSheet.show();
+        Window window = assignConfirmationBottomSheet.getWindow();
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
 
     }
@@ -449,7 +487,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
             super.onBackPressed();
             finishAffinity();
         } else {
-            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_LONG).show();
             exit = true;
             new Handler().postDelayed(new Runnable() {
                 @Override

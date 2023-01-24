@@ -1,5 +1,6 @@
 package in.nic.snt.starbus.ebtm.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,18 +35,18 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         activityConductorDashBinding = ActivityConductorDashBinding.inflate(getLayoutInflater());
         View view = activityConductorDashBinding.getRoot();
         setContentView(view);
+
+
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
         commonMethods = new CommonMethods(this);
 
+
         initMethods();
-
         setTripsList();
-
-
-
 
     }
 
@@ -65,6 +66,7 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
 
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
 

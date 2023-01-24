@@ -7,12 +7,11 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/color_primary"
         android:id="@+id/vet_toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
+        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,7 +23,7 @@
             android:fontFamily="@font/nunito_sans"
             android:gravity="center"
             android:text="@string/login"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="25dp"
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
+        android:textFontWeight="600"
         android:textColor="@color/black"
         android:fontFamily="@font/nunito_sans"
         android:text="@string/snt_parichalak"/>
@@ -67,7 +66,7 @@
         android:layout_marginRight="40dp"
         android:layout_width="0dp"
         android:background="@color/white"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/snt_text">
@@ -79,7 +78,7 @@
             android:inputType="textEmailAddress"
             android:fontFamily="@font/nunito_sans"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:hint="@string/username"/>
 
 
@@ -92,7 +91,7 @@
         android:layout_marginRight="40dp"
         android:layout_marginTop="15dp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:passwordToggleEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +103,7 @@
             android:fontFamily="@font/nunito_sans"
             android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:hint="@string/password"/>
 
 
@@ -123,8 +122,26 @@
         android:text="@string/login"
         android:layout_width="0dp"
         android:textColor="@color/white"
-        android:layout_height="48dp"
+        android:layout_height="65dp"
         android:orientation="horizontal"/>
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/nic_logo"/>
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/snt_logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
