@@ -72,5 +72,10 @@
     <string name="km">           KM    :</string>
     <string name="do_yoy_want_to_assign_this_waybill">Do you want to assign this waybill ?</string>
     <string name="select_one_trip_to_start_your_journey">Select one trip to start your journey</string>
+    <string name="do_you_want_to_close_your_trip">Do you want to close your trip ?</string>
+    <string name="do_you_want_to_start_your_trip">Do you want to start your trip ?</string>
+    <string name="do_you_want_to_change_current_station">Do you want to change current station ?</string>
+    <string name="print">Print</string>
+    <string name="close">CLOSE</string>
 
 </resources>

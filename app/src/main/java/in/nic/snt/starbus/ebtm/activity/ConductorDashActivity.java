@@ -2,21 +2,27 @@ package in.nic.snt.starbus.ebtm.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
-import java.util.List;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.List;
 import in.nic.snt.starbus.ebtm.R;
 import in.nic.snt.starbus.ebtm.adapters.TripsListAdapter;
 import in.nic.snt.starbus.ebtm.adaptersOnClicks.TripsListOnClick;
 import in.nic.snt.starbus.ebtm.databinding.ActivityConductorDashBinding;
+import in.nic.snt.starbus.ebtm.databinding.StartTripConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentTripsModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.TripsModel;
@@ -29,9 +35,13 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
 
     private ActivityConductorDashBinding activityConductorDashBinding;
     private AppDatabase db;
+    
+    StartTripConfirmationDialogBinding startTripConfirmationDialogBinding;
+    BottomSheetDialog startTripBottomSheet;
 
     CommonMethods commonMethods;
     boolean  exit = false;
+    TripsModel tripsModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +86,51 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
                 startActivity(new Intent(ConductorDashActivity.this,SearchAnotherRouteActivity.class));
                 break;
 
+            case R.id.start_trip_no_RL:
+                startTripBottomSheet.dismiss();
+                break;
+
+            case R.id.start_trip_yes_RL:
+                if(tripsModel.getTripStatus().equals("D")){
+
+                    Toast.makeText(this, "This trips is disable ", Toast.LENGTH_LONG).show();
+                }else {
+
+                    String currentDateTime = commonMethods.getDateTime();
+
+                    //insertCurrentTrip
+                    CurrentTripsDao currentTripsDao = db.currentTripsDao();
+                    CurrentTripsModel currentTripsModel = new CurrentTripsModel();
+                    currentTripsModel.setStrpId(tripsModel.getStrpId());
+                    currentTripsModel.setTripDirection(tripsModel.getTripDirection());
+                    currentTripsModel.setRouteId(tripsModel.getRoutId());
+                    currentTripsModel.setFromStationId(tripsModel.getFrStonId());
+                    currentTripsModel.setToStationId(tripsModel.getToStonId());
+                    currentTripsModel.setWithWaybillYn("Y");
+                    currentTripsModel.setCompleteYN("N");
+                    currentTripsModel.setStartDateTime(currentDateTime);
+                    currentTripsModel.setCompleteDateTime("");
+
+                    currentTripsDao.insertCurrentTrips(currentTripsModel);
+
+                    //disable previous trips
+                    TripsDao tripsDao = db.tripsDao();
+                    tripsDao.updateTripStatus(tripsModel.getStrpId(), "R");
+                    tripsDao.disablePeviousTrips(tripsModel.getSerialNo());
+
+                    //update machine status
+                    MachineCurrentStatusDao machineCurrentStatusDao = db.machineCurrentStatusDao();
+                    machineCurrentStatusDao.updateMachineCurrentStatus("2",currentDateTime);
+
+
+                    startActivity(new Intent(ConductorDashActivity.this, TicketBookingDashActivity.class));
+                    startTripBottomSheet.dismiss();
+                    Toast.makeText(this, "Trip Started Successfully", Toast.LENGTH_LONG).show();
+
+                }
+                break;
+
+
         }
 
 
@@ -83,45 +138,26 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void selectTrip(int position, TripsModel tripsModel) {
+        this.tripsModel = tripsModel;
+        showStartTripBottomSheet();
 
+    }
 
-        if(tripsModel.getTripStatus().equals("D")){
+    private void showStartTripBottomSheet() {
+        startTripBottomSheet = new BottomSheetDialog(this);
+        startTripBottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        startTripBottomSheet.setCancelable(true);
+        startTripBottomSheet.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-            Toast.makeText(this, "This trips is disable ", Toast.LENGTH_SHORT).show();
-        }else {
+        startTripConfirmationDialogBinding = StartTripConfirmationDialogBinding.inflate(LayoutInflater.from(this));
+        startTripBottomSheet.setContentView(startTripConfirmationDialogBinding.getRoot());
 
-            String currentDateTime = commonMethods.getDateTime();
+        startTripConfirmationDialogBinding.startTripNoRL.setOnClickListener(this);
+        startTripConfirmationDialogBinding.startTripYesRL.setOnClickListener(this);
 
-            //insertCurrentTrip
-            CurrentTripsDao currentTripsDao = db.currentTripsDao();
-            CurrentTripsModel currentTripsModel = new CurrentTripsModel();
-            currentTripsModel.setStrpId(tripsModel.getStrpId());
-            currentTripsModel.setTripDirection(tripsModel.getTripDirection());
-            currentTripsModel.setRouteId(tripsModel.getRoutId());
-            currentTripsModel.setFromStationId(tripsModel.getFrStonId());
-            currentTripsModel.setToStationId(tripsModel.getToStonId());
-            currentTripsModel.setWithWaybillYn("Y");
-            currentTripsModel.setCompleteYN("N");
-            currentTripsModel.setStartDateTime(currentDateTime);
-            currentTripsModel.setCompleteDateTime("");
-
-            currentTripsDao.insertCurrentTrips(currentTripsModel);
-
-            //disable previous trips
-            TripsDao tripsDao = db.tripsDao();
-            tripsDao.updateTripStatus(tripsModel.getStrpId(), "R");
-            tripsDao.disablePeviousTrips(tripsModel.getSerialNo());
-
-            //update machine status
-            MachineCurrentStatusDao machineCurrentStatusDao = db.machineCurrentStatusDao();
-            machineCurrentStatusDao.updateMachineCurrentStatus("2",currentDateTime);
-
-
-            startActivity(new Intent(ConductorDashActivity.this, TicketBookingDashActivity.class));
-
-            Toast.makeText(this, "Trip Started Successfully", Toast.LENGTH_SHORT).show();
-
-        }
+        startTripBottomSheet.show();
+        Window window = startTripBottomSheet.getWindow();
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
     @Override
@@ -130,7 +166,7 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
             super.onBackPressed();
             finishAffinity();
         } else {
-            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_LONG).show();
             exit = true;
             new Handler().postDelayed(new Runnable() {
                 @Override

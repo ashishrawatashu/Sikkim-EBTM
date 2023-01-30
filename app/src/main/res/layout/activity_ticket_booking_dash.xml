@@ -82,7 +82,7 @@
             android:fontFamily="@font/nunito_sans"
             android:textFontWeight="700"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"/>
+            android:layout_height="60dp"/>
 
         <Button
             android:id="@+id/select_lug_BT"
@@ -93,7 +93,7 @@
             android:fontFamily="@font/nunito_sans"
             android:textFontWeight="700"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"/>
+            android:layout_height="60dp"/>
 
         <Button
             android:id="@+id/select_concession_BT"
@@ -103,7 +103,7 @@
             android:fontFamily="@font/nunito_sans"
             android:textFontWeight="700"
             android:layout_width="wrap_content"
-            android:layout_height="55dp"/>
+            android:layout_height="60dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -111,6 +111,7 @@
     <Button
         android:id="@+id/close_trip"
         android:text="   CLOSE TRIP   "
+        android:backgroundTint="@color/red"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"

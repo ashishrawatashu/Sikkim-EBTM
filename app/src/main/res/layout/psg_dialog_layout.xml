@@ -1,193 +1,444 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/general_and_child_ticket"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:textFontWeight="800"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/dehradun_isbt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/delhi_kashmiri_gate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_margin="15dp"
+        app:cardCornerRadius="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="90dp"
-            android:background="@drawable/button_border"
-            android:layout_height="50dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:textColor="@color/black"
-                android:textFontWeight="800"
-                android:fontFamily="@font/nunito_sans"
-                android:textSize="18sp"
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/general_and_child_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textFontWeight="800"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/dehradun_isbt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/to"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/delhi_kashmiri_gate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="GEN"/>
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:background="@drawable/select_station_bg"
-            android:layout_height="50dp">
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="90dp"
+                    android:background="@drawable/button_border"
+                    android:layout_height="50dp">
 
-           <ImageView
-               android:padding="10dp"
-               android:src="@drawable/add"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"/>
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textFontWeight="800"
+                        android:fontFamily="@font/nunito_sans"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="GEN"/>
 
-        </RelativeLayout>
+                </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="70dp"
-            android:background="@drawable/select_station_bg"
-            android:layout_height="50dp">
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="50dp"
+                    android:background="@drawable/select_station_bg"
+                    android:backgroundTint="@color/color_primary"
+                    android:layout_height="50dp">
 
-            <ImageView
-                android:padding="10dp"
-                android:src="@drawable/add"
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:src="@drawable/add" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="50dp"
+                    android:background="@drawable/select_station_bg"
+                    android:backgroundTint="@color/color_primary"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:padding="10dp"
+                        android:src="@drawable/add"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:layout_marginEnd="5dp"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="*"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="="
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="200"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        </RelativeLayout>
+                android:layout_height="wrap_content">
 
 
-    </LinearLayout>
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="90dp"
+                    android:background="@drawable/button_border"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:textFontWeight="800"
+                        android:fontFamily="@font/nunito_sans"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="CLD"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                     android:layout_width="50dp"
+                    android:backgroundTint="@color/color_primary"
+                    android:background="@drawable/select_station_bg"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:padding="10dp"
+                        android:src="@drawable/add"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginEnd="8dp"
+                     android:layout_width="50dp"
+                    android:backgroundTint="@color/color_primary"
+                    android:background="@drawable/select_station_bg"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:padding="10dp"
+                        android:src="@drawable/add"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:layout_marginEnd="5dp"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="*"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginEnd="5dp"
+                    android:layout_width="wrap_content"
+                    android:text="="
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="200"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
 
 
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
 
-        <TextView
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/total_fare"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/total_fare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
 
-        <TextView
-            android:layout_weight="1"
-            android:gravity="start"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="$ 2000"
-            android:layout_marginStart="20dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="$ 2000"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/km"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
 
-        <TextView
-            android:layout_weight="1"
-            android:gravity="start"
-            android:textFontWeight="800"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="2000"
-            android:layout_marginStart="20dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/km"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
 
-    </LinearLayout>
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:textFontWeight="800"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="2000"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/close_psg_no_RL"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/select_station_bg"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/color_primary"
+                    android:textColor="@color/color_primary"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/close"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/print_psg_no_RL"
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/select_station_bg"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@color/color_primary"
+                    android:textColor="@color/color_primary"
+                    android:layout_height="50dp">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/print"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
