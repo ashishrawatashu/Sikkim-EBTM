@@ -76,44 +76,52 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
         if (MySingleton.getInstance().checkRouteLastUpdate) {
             activityDataUpdationBinding.routesPercentTV.setText("0 %");
             activityDataUpdationBinding.routesTotalProgressTV.setText("Please wait ...");
+            activityDataUpdationBinding.routesPB.setVisibility(View.VISIBLE);
             getRoute();
         } else {
             activityDataUpdationBinding.routesDoneIV.setVisibility(View.VISIBLE);
             activityDataUpdationBinding.routesTotalProgressTV.setText("Downloaded");
             activityDataUpdationBinding.routesPercentTV.setText("100 %");
             activityDataUpdationBinding.routesHorizontalProgressBar.setProgress(100);
+            activityDataUpdationBinding.routesPB.setVisibility(View.GONE);
         }
         if (MySingleton.getInstance().checkConcessionLastUpdate) {
             activityDataUpdationBinding.concessionPercentTV.setText("0 %");
             activityDataUpdationBinding.concessionTotalProgressTV.setText("Please wait ...");
+            activityDataUpdationBinding.concessionPB.setVisibility(View.VISIBLE);
             getConcession();
         } else {
             activityDataUpdationBinding.concessionDoneIV.setVisibility(View.VISIBLE);
             activityDataUpdationBinding.concessionTotalProgressTV.setText("Downloaded");
             activityDataUpdationBinding.concessionPercentTV.setText("100 %");
-
+            activityDataUpdationBinding.concessionPB.setVisibility(View.GONE);
             activityDataUpdationBinding.concessionHorizontalProgressBar.setProgress(100);
         }
         if (MySingleton.getInstance().checkFareStationLastUpdate) {
             activityDataUpdationBinding.fareStationsPercentTV.setText("0 %");
             activityDataUpdationBinding.fareStationsTotalProgressTV.setText("Please wait ...");
+            activityDataUpdationBinding.fareStationsPB.setVisibility(View.VISIBLE);
             getFareStations();
         } else {
 
             activityDataUpdationBinding.fareStationsDoneIV.setVisibility(View.VISIBLE);
             activityDataUpdationBinding.fareStationsTotalProgressTV.setText("Downloaded");
             activityDataUpdationBinding.fareStationsPercentTV.setText("100 %");
-
+            activityDataUpdationBinding.fareStationsPB.setVisibility(View.GONE);
             activityDataUpdationBinding.fareStationsHorizontalProgressBar.setProgress(100);
         }
         if (MySingleton.getInstance().checkRouteStationLastUpdate) {
             activityDataUpdationBinding.routesStationsPercentTV.setText("0 %");
             activityDataUpdationBinding.routesStationsTotalProgressTV.setText("Please wait ...");
+            activityDataUpdationBinding.routesStationsPB.setVisibility(View.VISIBLE);
+
             getRouteStations();
         } else {
             activityDataUpdationBinding.routesStationsDoneIV.setVisibility(View.VISIBLE);
             activityDataUpdationBinding.routesStationsTotalProgressTV.setText("Downloaded");
             activityDataUpdationBinding.routesStationsPercentTV.setText("100 %");
+            activityDataUpdationBinding.routesStationsPB.setVisibility(View.GONE);
+
             activityDataUpdationBinding.routesStationsHorizontalProgressBar.setProgress(100);
         }
 
@@ -179,10 +187,12 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             MySingleton.getInstance().checkRouteLastUpdate = false;
                             activityDataUpdationBinding.routesDoneIV.setVisibility(View.VISIBLE);
                             activityDataUpdationBinding.routesRetryIV.setVisibility(View.GONE);
+                            activityDataUpdationBinding.routesPB.setVisibility(View.GONE);
                             checkCondition();
                         }else {
                             activityDataUpdationBinding.routesDoneIV.setVisibility(View.INVISIBLE);
                             activityDataUpdationBinding.routesRetryIV.setVisibility(View.VISIBLE);
+                            activityDataUpdationBinding.routesPB.setVisibility(View.GONE);
                             MySingleton.getInstance().checkRouteLastUpdate = true;
                             activityDataUpdationBinding.routesPercentTV.setText("0 %");
                             activityDataUpdationBinding.routesHorizontalProgressBar.setProgress(0);
@@ -246,6 +256,7 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             activityDataUpdationBinding.concessionTotalProgressTV.setText("Downloaded");
                             activityDataUpdationBinding.concessionDoneIV.setVisibility(View.VISIBLE);
                             activityDataUpdationBinding.concessionRetryIV.setVisibility(View.GONE);
+                            activityDataUpdationBinding.concessionPB.setVisibility(View.GONE);
 
                             checkCondition();
                         }else {
@@ -253,6 +264,7 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             activityDataUpdationBinding.concessionRetryIV.setVisibility(View.VISIBLE);
                             MySingleton.getInstance().checkConcessionLastUpdate = true;
                             activityDataUpdationBinding.concessionPercentTV.setText("0 %");
+                            activityDataUpdationBinding.concessionPB.setVisibility(View.GONE);
                             activityDataUpdationBinding.concessionHorizontalProgressBar.setProgress(0);
                             activityDataUpdationBinding.concessionTotalProgressTV.setText("Downloading failed");
                         }
@@ -306,6 +318,7 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             db.dataLastDateUpdationDateModel().updateFareStationLastUpdate(1, getFareStationsResponse.getFareStations().get(0).getFarestationlastdate());
                             activityDataUpdationBinding.fareStationsDoneIV.setVisibility(View.VISIBLE);
                             activityDataUpdationBinding.fareStationsRetryIV.setVisibility(View.GONE);
+                            activityDataUpdationBinding.fareStationsPB.setVisibility(View.GONE);
 
                             checkCondition();
                         }else {
@@ -313,7 +326,7 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             activityDataUpdationBinding.fareStationsRetryIV.setVisibility(View.VISIBLE);
                             activityDataUpdationBinding.fareStationsHorizontalProgressBar.setProgress(0);
                             activityDataUpdationBinding.fareStationsPercentTV.setText("0 %");
-
+                            activityDataUpdationBinding.fareStationsPB.setVisibility(View.GONE);
                             activityDataUpdationBinding.fareStationsTotalProgressTV.setText("Downloading failed");
                             MySingleton.getInstance().checkFareStationLastUpdate = true;
                         }
@@ -359,15 +372,21 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
                             db.dataLastDateUpdationDateModel().updateRouteStationLastUpdate(1, getRouteStationsResponse.getRouteStations().get(0).getRoutestationlastdate());
                             activityDataUpdationBinding.routesStationsDoneIV.setVisibility(View.VISIBLE);
                             activityDataUpdationBinding.routesStationsRetryIV.setVisibility(View.GONE);
+                            activityDataUpdationBinding.routesStationsPB.setVisibility(View.GONE);
                             checkCondition();
                         }else {
                             activityDataUpdationBinding.routesStationsDoneIV.setVisibility(View.INVISIBLE);
                             activityDataUpdationBinding.routesStationsRetryIV.setVisibility(View.VISIBLE);
                             MySingleton.getInstance().checkRouteStationLastUpdate = true;
+                            activityDataUpdationBinding.routesStationsPB.setVisibility(View.GONE);
+
                             activityDataUpdationBinding.routesStationsPercentTV.setText("0 %");
                             activityDataUpdationBinding.routesStationsHorizontalProgressBar.setProgress(0);
                             activityDataUpdationBinding.routesStationsTotalProgressTV.setText("Downloading failed");
                         }
+
+                        activityDataUpdationBinding.fareStationsPercentTV.setText("30 %");
+                        activityDataUpdationBinding.fareStationsHorizontalProgressBar.setProgress(30);
 
 
                     }

@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/from_station_TV"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:textFontWeight="800"
@@ -61,6 +62,7 @@
 
 
                 <TextView
+                    android:id="@+id/to_station_TV"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:textFontWeight="800"
@@ -78,7 +80,8 @@
 
             <LinearLayout
                 android:layout_marginTop="10dp"
-                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:gravity="left"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -86,7 +89,7 @@
 
                 <RelativeLayout
                     android:layout_marginEnd="8dp"
-                    android:layout_width="90dp"
+                    android:layout_width="65dp"
                     android:background="@drawable/button_border"
                     android:layout_height="50dp">
 
@@ -94,7 +97,7 @@
                         android:textColor="@color/black"
                         android:textFontWeight="800"
                         android:fontFamily="@font/nunito_sans"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -103,6 +106,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/gen_subtract_RL"
                     android:layout_marginEnd="8dp"
                     android:layout_width="50dp"
                     android:background="@drawable/select_station_bg"
@@ -113,11 +117,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="10dp"
-                        android:src="@drawable/add" />
+                        android:src="@drawable/subtract" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/gen_add_RL"
                     android:layout_marginEnd="8dp"
                     android:layout_width="50dp"
                     android:background="@drawable/select_station_bg"
@@ -133,10 +138,11 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/gen_fare_TV"
                     android:layout_width="wrap_content"
                     android:text="0"
                     android:layout_marginEnd="5dp"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -147,7 +153,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="*"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
@@ -155,10 +161,11 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/no_of_gen_TV"
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="0"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -169,16 +176,17 @@
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="="
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/gen_total_fare_TV"
                     android:layout_width="wrap_content"
-                    android:text="200"
-                    android:textSize="20sp"
+                    android:text="00"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -190,7 +198,8 @@
 
             <LinearLayout
                 android:layout_marginTop="10dp"
-                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:gravity="left"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -198,7 +207,7 @@
 
                 <RelativeLayout
                     android:layout_marginEnd="8dp"
-                    android:layout_width="90dp"
+                    android:layout_width="65dp"
                     android:background="@drawable/button_border"
                     android:layout_height="50dp">
 
@@ -206,7 +215,7 @@
                         android:textColor="@color/black"
                         android:textFontWeight="800"
                         android:fontFamily="@font/nunito_sans"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -215,6 +224,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/cld_subtract_RL"
                     android:layout_marginEnd="8dp"
                      android:layout_width="50dp"
                     android:backgroundTint="@color/color_primary"
@@ -223,13 +233,14 @@
 
                     <ImageView
                         android:padding="10dp"
-                        android:src="@drawable/add"
+                        android:src="@drawable/subtract"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
 
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/cld_add_RL"
                     android:layout_marginEnd="8dp"
                      android:layout_width="50dp"
                     android:backgroundTint="@color/color_primary"
@@ -245,10 +256,11 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/cld_fare_TV"
                     android:layout_width="wrap_content"
                     android:text="0"
                     android:layout_marginEnd="5dp"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -259,7 +271,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="*"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -267,10 +279,11 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/no_of_cld_TV"
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="0"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -281,7 +294,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_width="wrap_content"
                     android:text="="
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -289,9 +302,10 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/total_cld_fare_TV"
                     android:layout_width="wrap_content"
-                    android:text="200"
-                    android:textSize="20sp"
+                    android:text="00"
+                    android:textSize="16sp"
                     android:fontFamily="@font/nunito_sans"
                     android:textFontWeight="700"
                     android:textStyle="bold"
@@ -325,6 +339,7 @@
 
 
                 <TextView
+                    android:id="@+id/psg_total_fare_TV"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:textFontWeight="800"
@@ -361,6 +376,7 @@
 
 
                 <TextView
+                    android:id="@+id/psg_total_km_TV"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:textFontWeight="800"

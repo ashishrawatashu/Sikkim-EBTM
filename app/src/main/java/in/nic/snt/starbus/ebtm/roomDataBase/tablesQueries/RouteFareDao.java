@@ -21,11 +21,14 @@ public interface RouteFareDao {
     @Query("SELECT * FROM RouteFareModel")
     List<RouteFareModel> getRouteFare();
 
-
     @Query("DELETE FROM RouteFareModel WHERE routeId = :routeId")
     void deleteRouteFareByRouteId(int routeId);
 
     @Query("DELETE FROM RouteFareModel")
     void deleteRouteFareTable();
+
+    @Query("select * from RouteFareModel where routeId = :routeId And fromStationId= :fromStationId And toStationId = :toStationId And srtpId = :srtpId")
+    RouteFareModel getFare(int routeId, int fromStationId, int toStationId, int srtpId);
+
 
 }

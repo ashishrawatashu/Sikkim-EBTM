@@ -38,11 +38,17 @@ public class TicketBookingFromStationAdapter extends  RecyclerView.Adapter<Ticke
         return new TicketBookingFromStationAdapter.StationListAdapterViewHolder(TicketBookingStationListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
     @Override
     public void onBindViewHolder(@NonNull TicketBookingFromStationAdapter.StationListAdapterViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.ticketBookingStationListItemBinding.stationNameTV.setText(stationsModelList.get(position).getStationName());
+
+
+        if(!stationsModelList.get(position).isEnable()){
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
 
         if(stationsModelList.get(position).isSelected()){
             holder.ticketBookingStationListItemBinding.stationNameTV.setTextColor(Color.WHITE);
@@ -67,10 +73,13 @@ public class TicketBookingFromStationAdapter extends  RecyclerView.Adapter<Ticke
         return stationsModelList.size();
     }
 
+
+
     @Override
     public int getItemViewType(int position) {
         return super.getItemViewType(position);
     }
+
     public class StationListAdapterViewHolder extends RecyclerView.ViewHolder {
         TicketBookingStationListItemBinding ticketBookingStationListItemBinding;
         public StationListAdapterViewHolder(TicketBookingStationListItemBinding ticketBookingStationListItemBinding) {

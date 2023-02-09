@@ -44,6 +44,11 @@ public class TicketBookingToStationAdapter extends  RecyclerView.Adapter<TicketB
         holder.ticketBookingStationListItemBinding.stationNameTV.setText(stationsModelList.get(position).getStationName());
 
 
+        if(!stationsModelList.get(position).isEnable()){
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
+
         if(stationsModelList.get(position).isSelected()){
             holder.ticketBookingStationListItemBinding.stationNameTV.setTextColor(Color.WHITE);
             holder.ticketBookingStationListItemBinding.stationNameCL.setBackground(ContextCompat.getDrawable(context, R.drawable.select_station_bg));

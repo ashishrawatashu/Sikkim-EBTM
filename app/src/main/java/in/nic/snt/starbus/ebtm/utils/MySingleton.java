@@ -26,5 +26,11 @@ public class MySingleton {
 
 
         public String WAYBILLNO = "0711220003";
+        public String operator = "UTC03750 test@123";
+        public String con = "UTC00623 test@123";
+
+
+
+        public String EBTTMCODE = "042299";
 
 }
