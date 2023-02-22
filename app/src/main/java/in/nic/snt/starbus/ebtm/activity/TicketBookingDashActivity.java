@@ -74,7 +74,7 @@ public class TicketBookingDashActivity extends AppCompatActivity implements View
     RouteFareModel                                          routeFareModel;
     int                                                     statePositionFromStation = 0;
     int                                                     statePositionToStation = 0;
-    int                                                     selectedFromStationId, selectedToStationId;
+    int                                                     selectedFromStationId, selectedToStationId=0;
     int                                                     no_of_gen_ticket = 0;
     int                                                     no_of_cld_ticket = 0;
 
@@ -209,6 +209,11 @@ public class TicketBookingDashActivity extends AppCompatActivity implements View
 
 
             case R.id.select_psg_BT:
+
+                if(selectedToStationId==0){
+                    Toast.makeText(this, "Please select to station", Toast.LENGTH_SHORT).show();
+                    break;
+                }
 
                 RouteFareDao routeFareDao = db.routeFareDao();
                 routeFareModel = routeFareDao.getFare(routeId,selectedFromStationId,selectedToStationId,strpId);

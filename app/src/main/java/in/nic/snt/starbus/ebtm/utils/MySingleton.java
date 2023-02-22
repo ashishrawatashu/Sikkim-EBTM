@@ -24,7 +24,6 @@ public class MySingleton {
         public boolean checkFareStationLastUpdate = false;
         public boolean checkConcessionLastUpdate = false;
 
-
         public String WAYBILLNO = "0711220003";
         public String operator = "UTC03750 test@123";
         public String con = "UTC00623 test@123";

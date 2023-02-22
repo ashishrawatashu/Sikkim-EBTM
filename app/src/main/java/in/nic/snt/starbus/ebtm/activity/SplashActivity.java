@@ -30,6 +30,7 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.DataUpdationLastDateDa
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineCurrentStatusDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineStatusDao;
 import in.nic.snt.starbus.ebtm.utils.CommonMethods;
+import in.nic.snt.starbus.ebtm.utils.JavaToCSharpAES;
 import in.nic.snt.starbus.ebtm.utils.MySingleton;
 import retrofit2.Response;
 
@@ -46,6 +47,13 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         activitySplashBinding = ActivitySplashBinding.inflate(getLayoutInflater());
         View view = activitySplashBinding.getRoot();
         setContentView(view);
+
+        JavaToCSharpAES javaToCSharpAES = new JavaToCSharpAES();
+        try {
+            Log.e("WORD",javaToCSharpAES.Encryptt());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         commonMethods = new CommonMethods(this);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
