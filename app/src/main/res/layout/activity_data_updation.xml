@@ -421,6 +421,121 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardElevation="10dp"
+                    android:elevation="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="80dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:padding="10dp"
+                            android:layout_width="80dp"
+                            android:src="@drawable/download"
+                            android:layout_height="match_parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_sans"
+                                android:text="@string/expensesEarnings"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"/>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <ProgressBar
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/expensesEarnings_done_IV"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    android:id="@+id/expensesEarnings_horizontal_progress_bar"
+                                    style="@style/CustomProgressBarHorizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:indeterminate="false"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/progress_bar_sate"
+                                    android:minHeight="25dp"/>
+
+
+                                <TextView
+                                    android:id="@+id/expensesEarnings_percent_TV"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="0 %"
+                                    android:fontFamily="@font/nunito_sans"
+                                    android:gravity="center"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/white"
+                                    android:layout_marginTop="5dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@id/expensesEarnings_horizontal_progress_bar"/>
+
+                                <ImageView
+                                    android:visibility="invisible"
+                                    android:src="@drawable/done"
+                                    android:id="@+id/expensesEarnings_done_IV"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <ImageView
+                                    android:visibility="gone"
+                                    android:src="@drawable/download_here"
+                                    android:id="@+id/expensesEarnings_retry_IV"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <ProgressBar
+                                    android:visibility="invisible"
+                                    android:src="@drawable/done"
+                                    android:id="@+id/expensesEarnings_PB"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"/>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <TextView
+                                android:id="@+id/expensesEarnings_total_progress_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_sans"
+                                android:layout_margin="5dp"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"

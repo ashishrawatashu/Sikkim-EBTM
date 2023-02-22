@@ -38,5 +38,4 @@ public interface TripsDao {
     @Query("DELETE FROM TripsModel")
     public void deleteTripsTable();
 
-
 }

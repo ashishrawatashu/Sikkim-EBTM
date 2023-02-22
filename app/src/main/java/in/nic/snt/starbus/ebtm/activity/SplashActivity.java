@@ -137,6 +137,8 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
 
             ApiService<CheckETMResponse> service = new ApiService<>();
             service.get(this, ApiClient.getApiInterface().checkETM(checkETMRequest), "CheckETM");
+
+            Log.e("CHECK_ETM",commonMethods.getJsonFormat(checkETMRequest));
         } else {
             commonMethods.DialogInternet();
         }

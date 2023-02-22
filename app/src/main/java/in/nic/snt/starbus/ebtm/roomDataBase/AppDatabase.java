@@ -8,6 +8,7 @@ import in.nic.snt.starbus.ebtm.roomDataBase.entities.ConductorDriverTiModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentTripsModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentUserLoginModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.DataLastDateUpdationDateModel;
+import in.nic.snt.starbus.ebtm.roomDataBase.entities.ExpensesEarningModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.MachineCurrentStatusModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.MachineStatusModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.OnBoardingStatusModel;
@@ -23,6 +24,7 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.ConductorDriverTIDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentTripsDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentUserLoginStatusDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.DataUpdationLastDateDao;
+import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.ExpensesEarningsDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineCurrentStatusDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineStatusDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.OnBoardingStatusDao;
@@ -48,7 +50,8 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.WayBillDao;
         OperatorLoginResultModel.class,
         CurrentTripsModel.class,
         CurrentUserLoginModel.class,
-        OnBoardingStatusModel.class
+        OnBoardingStatusModel.class,
+        ExpensesEarningModel.class,
 },
         version = 1)
 public abstract class AppDatabase extends RoomDatabase {
@@ -80,5 +83,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CurrentUserLoginStatusDao currentUserLoginStatusDao();
 
     public abstract OnBoardingStatusDao onBoardingStatusDao();
+
+    public abstract ExpensesEarningsDao expensesEarningsDao();
 
 }
