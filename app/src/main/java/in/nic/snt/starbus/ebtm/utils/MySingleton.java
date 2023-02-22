@@ -22,11 +22,11 @@ public class MySingleton {
         public boolean checkRouteLastUpdate = false;
         public boolean checkRouteStationLastUpdate = false;
         public boolean checkFareStationLastUpdate = false;
+        public boolean checkExpensesEarnings = false;
         public boolean checkConcessionLastUpdate = false;
 
-
         public String WAYBILLNO = "0711220003";
-        public String operator = "UTC03750 test@123";
+        public String operator = "V461258 test@123";
         public String con = "UTC00623 test@123";
 
 

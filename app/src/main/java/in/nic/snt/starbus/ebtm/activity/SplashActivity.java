@@ -28,6 +28,7 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentUserLoginStatus
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.DataUpdationLastDateDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineCurrentStatusDao;
 import in.nic.snt.starbus.ebtm.utils.CommonMethods;
+import in.nic.snt.starbus.ebtm.utils.JavaToCSharpAES;
 import in.nic.snt.starbus.ebtm.utils.MySingleton;
 import retrofit2.Response;
 
@@ -45,44 +46,12 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         View view = activitySplashBinding.getRoot();
         setContentView(view);
 
-        /*db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
-        ExpenseDao expenseDao = db.expenseDao();
-        Log.d("<Data>"," > "+expenseDao.getExpenseData().size());
-        ExpenseModel expenseModel = new ExpenseModel();
-        if(expenseDao.getExpenseData().size() < 2)
-        {
-
-            for(int i = 1; i <=4; i++)
-            {
-                expenseModel.setExpanseCode(String.valueOf(i));
-                expenseModel.setExpanseName("Type" +String.valueOf(i));
-                expenseDao.insertRecord(expenseModel);
-
-            }
+        JavaToCSharpAES javaToCSharpAES = new JavaToCSharpAES();
+        try {
+            Log.e("WORD",javaToCSharpAES.Encryptt());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
-        Log.d("<Data>"," > "+expenseDao.getExpenseData().size());
-
-      *//*  List<InsertPermitDetails> permitDetailsList = new ArrayList<>();
-        permitDetailsList = prahariDao.getIncompleteScanPermitData();
-
-        Log.d("IncompleteScanPermitData","permitDetailsList > "+permitDetailsList);*//*
-        //Log.d("IncompleteScanPermitData","permitDetailsList index 0 > "+permitDetailsList.get(0));
-
-
-        List<ExpenseModel> expenseModels = expenseDao.getExpenseData();
-        String str = "";
-        for (ExpenseModel user : expenseModels)
-        {
-            str = str+"\t "+user.getExpanseCode()+" "+user.getExpanseName();
-        }
-        Log.d("<DATA>"," > "+str);
-
-
-        Intent dataUpdationActivity = new Intent(this, ExpenseActivity.class);
-        startActivity(dataUpdationActivity);
-        finish();*/
 
         commonMethods = new CommonMethods(this);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
@@ -166,6 +135,8 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
 
             ApiService<CheckETMResponse> service = new ApiService<>();
             service.get(this, ApiClient.getApiInterface().checkETM(checkETMRequest), "CheckETM");
+
+            Log.e("CHECK_ETM",commonMethods.getJsonFormat(checkETMRequest));
         } else {
             commonMethods.DialogInternet();
         }

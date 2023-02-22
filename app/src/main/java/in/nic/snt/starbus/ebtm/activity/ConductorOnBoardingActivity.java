@@ -168,7 +168,6 @@ public class ConductorOnBoardingActivity extends AppCompatActivity implements Vi
                     startActivity(ticketBookingDashActivity);
                 }
 
-
                 break;
         }
     }

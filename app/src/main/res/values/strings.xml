@@ -82,5 +82,6 @@
     <string name="enter_expense_details">Enter expenses details</string>
     <string name="amount">Amount</string>
     <string name="remark">Remark</string>
+    <string name="expensesEarnings"><![CDATA[Expenses & Earnings]]></string>
 
 </resources>

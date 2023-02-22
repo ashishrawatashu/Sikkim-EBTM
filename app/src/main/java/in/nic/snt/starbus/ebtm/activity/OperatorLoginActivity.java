@@ -120,6 +120,8 @@ public class OperatorLoginActivity extends AppCompatActivity implements ApiRespo
 
                     }else if (operatorLoginResponse.getCode().equals("102")) {
                         Toast.makeText(this, operatorLoginResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    }else if (operatorLoginResponse.getCode().equals("101")) {
+                        Toast.makeText(this, operatorLoginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

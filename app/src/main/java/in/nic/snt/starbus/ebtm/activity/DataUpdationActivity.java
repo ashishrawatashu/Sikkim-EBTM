@@ -21,6 +21,7 @@ import in.nic.snt.starbus.ebtm.api.ApiClient;
 import in.nic.snt.starbus.ebtm.api.ApiResponse;
 import in.nic.snt.starbus.ebtm.api.ApiService;
 import in.nic.snt.starbus.ebtm.databinding.ActivityDataUpdationBinding;
+import in.nic.snt.starbus.ebtm.response.GetExpensesEarnings;
 import in.nic.snt.starbus.ebtm.response.getConcessionResponse.GetConcessionResponse;
 import in.nic.snt.starbus.ebtm.response.getFareStationsResponse.GetFareStationsResponse;
 import in.nic.snt.starbus.ebtm.response.getRouteResponse.GetRouteResponse;
@@ -31,6 +32,7 @@ import in.nic.snt.starbus.ebtm.roomDataBase.entities.RouteFareModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.RoutesModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.RoutesStationModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.ConcessionDao;
+import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.ExpensesEarningsDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.RouteFareDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.RoutesDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.RoutesStationDao;
@@ -104,6 +106,18 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
             getFareStations();
         } else {
 
+            activityDataUpdationBinding.expensesEarningsDoneIV.setVisibility(View.VISIBLE);
+            activityDataUpdationBinding.expensesEarningsTotalProgressTV.setText("Downloaded");
+            activityDataUpdationBinding.expensesEarningsPercentTV.setText("100 %");
+            activityDataUpdationBinding.expensesEarningsPB.setVisibility(View.GONE);
+            activityDataUpdationBinding.expensesEarningsHorizontalProgressBar.setProgress(100);
+        } if (MySingleton.getInstance().checkExpensesEarnings) {
+            activityDataUpdationBinding.expensesEarningsPercentTV.setText("0 %");
+            activityDataUpdationBinding.expensesEarningsTotalProgressTV.setText("Please wait ...");
+            activityDataUpdationBinding.expensesEarningsPB.setVisibility(View.VISIBLE);
+            getExpensesEarnings();
+        } else {
+
             activityDataUpdationBinding.fareStationsDoneIV.setVisibility(View.VISIBLE);
             activityDataUpdationBinding.fareStationsTotalProgressTV.setText("Downloaded");
             activityDataUpdationBinding.fareStationsPercentTV.setText("100 %");
@@ -126,6 +140,12 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
         }
 
 
+    }
+
+    private void getExpensesEarnings() {
+        ApiService<GetExpensesEarnings> service = new ApiService<>();
+        service.get(this, ApiClient.getApiInterface().getExpensesEarnings(getDataRequest), "getExpensesEarnings");
+        Log.e("getConcessionRequest", String.valueOf(getDataRequest));
     }
 
     private void getConcession() {
@@ -390,6 +410,50 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
 
 
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+
+
+            case "getExpensesEarnings":
+                try {
+                    GetExpensesEarnings getExpensesEarnings = (GetExpensesEarnings) response.body();
+                    Log.e("data_response_getConcession", commonMethods.getJsonFormat(getExpensesEarnings));
+                    ExpensesEarningsDao expensesEarningsDao = db.expensesEarningsDao();
+                    expensesEarningsDao.deleteExpensesEarning();
+
+                    if(getExpensesEarnings.getCode().equals("100")){
+                        for (int i = 0; i < getExpensesEarnings.getExpensesEarnings().size(); i++) {
+                            expensesEarningsDao.insertRecord(getExpensesEarnings.getExpensesEarnings().get(i));
+                        }
+                        if (expensesEarningsDao.getExpensesEarning().size()==getExpensesEarnings.getExpensesEarnings().size()){
+                            activityDataUpdationBinding.expensesEarningsHorizontalProgressBar.setProgress(20);
+                            activityDataUpdationBinding.expensesEarningsPercentTV.setText("20 %");
+                            activityDataUpdationBinding.expensesEarningsHorizontalProgressBar.setProgress(50);
+                            activityDataUpdationBinding.expensesEarningsPercentTV.setText("50 %");
+                            activityDataUpdationBinding.expensesEarningsHorizontalProgressBar.setProgress(100);
+                            activityDataUpdationBinding.expensesEarningsPercentTV.setText("100 %");
+                            activityDataUpdationBinding.expensesEarningsTotalProgressTV.setText("Downloaded");
+                            MySingleton.getInstance().checkExpensesEarnings = false;
+                            activityDataUpdationBinding.expensesEarningsDoneIV.setVisibility(View.VISIBLE);
+                            activityDataUpdationBinding.expensesEarningsRetryIV.setVisibility(View.GONE);
+                            activityDataUpdationBinding.expensesEarningsPB.setVisibility(View.GONE);
+                            checkCondition();
+                        }else {
+                            activityDataUpdationBinding.expensesEarningsDoneIV.setVisibility(View.INVISIBLE);
+                            activityDataUpdationBinding.expensesEarningsRetryIV.setVisibility(View.VISIBLE);
+                            activityDataUpdationBinding.expensesEarningsPB.setVisibility(View.GONE);
+                            MySingleton.getInstance().checkExpensesEarnings = true;
+                            activityDataUpdationBinding.expensesEarningsPercentTV.setText("0 %");
+                            activityDataUpdationBinding.expensesEarningsHorizontalProgressBar.setProgress(0);
+                            activityDataUpdationBinding.expensesEarningsTotalProgressTV.setText("Downloading failed");
+                        }
+
+                    }else {
+                        Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

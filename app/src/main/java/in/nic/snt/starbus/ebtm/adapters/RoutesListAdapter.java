@@ -28,10 +28,10 @@ public class RoutesListAdapter extends  RecyclerView.Adapter<RoutesListAdapter.R
 
 
     public RoutesListAdapter(Context context, List<RoutesModel> routesModelList, RoutesListOnClick routesListOnClick) {
-        this.context = context;
-        this.routesModelList = routesModelList;
-        this.routesListOnClick = routesListOnClick;
-        routesModelListFilter          = new ArrayList<>(routesModelList);
+        this.context            = context;
+        this.routesModelList    = routesModelList;
+        this.routesListOnClick  = routesListOnClick;
+        routesModelListFilter   = new ArrayList<>(routesModelList);
     }
 
     @NonNull

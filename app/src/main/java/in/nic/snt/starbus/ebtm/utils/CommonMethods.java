@@ -84,6 +84,13 @@ public class CommonMethods {
    }
 
 
+    public void getActiveTrip(Context context){
+
+
+
+    }
+
+
     public void showCustomProgressBarDialog(Context context) {
         try {
             progressBarDialog = new Dialog(context);
