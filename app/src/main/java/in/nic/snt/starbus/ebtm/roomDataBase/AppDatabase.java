@@ -48,7 +48,8 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.WayBillDao;
         OperatorLoginResultModel.class,
         CurrentTripsModel.class,
         CurrentUserLoginModel.class,
-        OnBoardingStatusModel.class
+        OnBoardingStatusModel.class,
+
 },
         version = 1)
 public abstract class AppDatabase extends RoomDatabase {
@@ -80,5 +81,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CurrentUserLoginStatusDao currentUserLoginStatusDao();
 
     public abstract OnBoardingStatusDao onBoardingStatusDao();
+
+
 
 }
