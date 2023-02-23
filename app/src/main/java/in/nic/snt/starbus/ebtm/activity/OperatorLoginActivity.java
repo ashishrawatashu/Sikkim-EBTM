@@ -115,7 +115,6 @@ public class OperatorLoginActivity extends AppCompatActivity implements ApiRespo
                         operatorLoginDetailsDao.deleteWayBillWaybill();
                         operatorLoginDetailsDao.insertRecord(operatorLoginResponse.getResult().get(0));
 
-
                         checkOperatorStatusForBoarding(operatorLoginResponse);
 
                     }else if (operatorLoginResponse.getCode().equals("102")) {
@@ -266,14 +265,13 @@ public class OperatorLoginActivity extends AppCompatActivity implements ApiRespo
     private void moveToConductorDashBoard(String userName) {
         Log.e("CHECK","3");
         insertUserLoginStatusData(userName,"C");
-        CurrentTripsDao currentTripsDao = db.currentTripsDao();
-        CurrentTripsModel currentTripsModel = currentTripsDao.getIncompleteTripData();
-        if(currentTripsModel==null){
-            Intent conductorDashActivity = new Intent(this, ConductorDashActivity.class);
-            startActivity(conductorDashActivity);
-        }else if(currentTripsModel.getCompleteYN().equals("N")){
+        boolean isActiveTrip = commonMethods.getActiveTrip(this);
+        if(isActiveTrip){
             Intent ticketBookingDashActivity = new Intent(this, TicketBookingDashActivity.class);
             startActivity(ticketBookingDashActivity);
+        }else  {
+            Intent conductorDashActivity = new Intent(this, ConductorDashActivity.class);
+            startActivity(conductorDashActivity);
         }
 
     }

@@ -158,15 +158,19 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
                         if (checkETMResponse.getResult().get(0).getETMRegistrationYN().equals("Y")) {
                             if (checkETMResponse.getResult().get(0).getRouteUpdatedYN().equals("N")) {
                                 MySingleton.getInstance().checkRouteLastUpdate = true;
+                                MySingleton.getInstance().checkExpensesEarnings = true;
                             }
                             if (checkETMResponse.getResult().get(0).getRouteStationUpdatedYN().equals("N")) {
                                 MySingleton.getInstance().checkRouteStationLastUpdate = true;
+                                MySingleton.getInstance().checkExpensesEarnings = true;
                             }
                             if (checkETMResponse.getResult().get(0).getFareStationUpdatedYN().equals("N")) {
                                 MySingleton.getInstance().checkFareStationLastUpdate = true;
+                                MySingleton.getInstance().checkExpensesEarnings = true;
                             }
                             if (checkETMResponse.getResult().get(0).getConcessionUpdatedYN().equals("N")) {
                                 MySingleton.getInstance().checkConcessionLastUpdate = true;
+                                MySingleton.getInstance().checkExpensesEarnings = true;
                             }
 
                             checkDataUpdateCondition();

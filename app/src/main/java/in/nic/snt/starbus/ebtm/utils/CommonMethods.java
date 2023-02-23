@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -25,7 +24,8 @@ import java.util.Date;
 
 import in.nic.snt.starbus.ebtm.R;
 import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineStatusDao;
+import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentTripsModel;
+import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentTripsDao;
 
 public class CommonMethods {
 
@@ -84,7 +84,19 @@ public class CommonMethods {
    }
 
 
-    public void getActiveTrip(Context context){
+    public boolean getActiveTrip(Context context){
+        AppDatabase db;
+        db = Room.databaseBuilder(context, AppDatabase.class, context.getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
+        CurrentTripsDao currentTripsDao = db.currentTripsDao();
+        CurrentTripsModel currentTripsModel = currentTripsDao.getIncompleteTripData();
+
+        if(currentTripsModel==null){
+            return false;
+        }else if(currentTripsModel.getCompleteYN().equals("N")){
+            return true;
+        }
+
+        return  false;
 
 
 
