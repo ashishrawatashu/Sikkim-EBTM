@@ -145,7 +145,7 @@ public class DataUpdationActivity extends AppCompatActivity implements ApiRespon
     private void getExpensesEarnings() {
         ApiService<GetExpensesEarnings> service = new ApiService<>();
         service.get(this, ApiClient.getApiInterface().getExpensesEarnings(getDataRequest), "getExpensesEarnings");
-        Log.e("getConcessionRequest", String.valueOf(getDataRequest));
+        Log.e("getExpensesEarningsRequest", String.valueOf(getDataRequest));
     }
 
     private void getConcession() {
