@@ -46,6 +46,8 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         View view = activitySplashBinding.getRoot();
         setContentView(view);
 
+
+
         JavaToCSharpAES javaToCSharpAES = new JavaToCSharpAES();
         try {
             Log.e("WORD",javaToCSharpAES.Encryptt());

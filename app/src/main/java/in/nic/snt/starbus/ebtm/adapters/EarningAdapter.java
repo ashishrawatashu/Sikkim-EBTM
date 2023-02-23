@@ -14,18 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import in.nic.snt.starbus.ebtm.activity.EarningActivity;
 import in.nic.snt.starbus.ebtm.adaptersOnClicks.ExpenseListOnClick;
 import in.nic.snt.starbus.ebtm.databinding.CustomExpanseListBinding;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.ExpensesEarningModel;
 
-public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseListAdapterViewHolder>{
+public class EarningAdapter extends RecyclerView.Adapter<EarningAdapter.EarningListAdapterViewHolder>  {
 
     Context context;
     List<ExpensesEarningModel> expenseModelsList;
     ExpenseListOnClick expenseListOnClick;
 
 
-    public ExpanseAdapter(Context context, List<ExpensesEarningModel> expenseModels, ExpenseListOnClick expenseListOnClick) {
+    public EarningAdapter(Context context, List<ExpensesEarningModel> expenseModels, ExpenseListOnClick expenseListOnClick) {
         this.context = context;
         this.expenseModelsList = expenseModels;
         this.expenseListOnClick = expenseListOnClick;
@@ -33,14 +34,12 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseL
 
     @NonNull
     @Override
-    public ExpanseAdapter.ExpenseListAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ExpanseAdapter.ExpenseListAdapterViewHolder(CustomExpanseListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public EarningAdapter.EarningListAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new EarningAdapter.EarningListAdapterViewHolder(CustomExpanseListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExpanseAdapter.ExpenseListAdapterViewHolder holder, @SuppressLint("RecyclerView") int position) {
-
-
+    public void onBindViewHolder(@NonNull EarningListAdapterViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //if( expenseModelsList.get(position).getType().equalsIgnoreCase(""))
         holder.customExpanseListBinding.tvExpenseName.setText(expenseModelsList.get(position).getName().toString());
 
@@ -95,15 +94,16 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseL
     }
 
 
+
     @Override
     public int getItemCount() {
         return expenseModelsList.size();
     }
 
 
-    public class ExpenseListAdapterViewHolder extends  RecyclerView.ViewHolder {
+    public class EarningListAdapterViewHolder extends  RecyclerView.ViewHolder {
         CustomExpanseListBinding customExpanseListBinding;
-        public ExpenseListAdapterViewHolder(CustomExpanseListBinding expenseListBinding) {
+        public EarningListAdapterViewHolder(CustomExpanseListBinding expenseListBinding) {
             super(expenseListBinding.getRoot());
             this.customExpanseListBinding = expenseListBinding;
         }

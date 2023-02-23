@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:paddingTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp">
+
+
+                <ImageView
+                    android:id="@+id/img_Icon"
+                    android:layout_width="80dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:src="@drawable/tollbooth"
+                    app:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_earningName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/img_Icon"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="Dhaba"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_downArrow"
+                    android:layout_width="80dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:src="@drawable/down_arrow2" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_expandDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_sans"
+                        android:text="@string/amount"
+                        android:paddingVertical="@dimen/dp_10"
+                        android:textColor="@color/black"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:textSize="16sp"/>
+
+
+                    <EditText
+                        android:id="@+id/et_Amount"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/way_bill_et_bg"
+                        android:digits="0123456789"
+                        android:focusable="true"
+                        android:maxLength="10"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_sans"
+                        android:text="@string/remark"
+                        android:paddingVertical="@dimen/dp_10"
+                        android:textColor="@color/black"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:textSize="16sp"/>
+
+
+                    <EditText
+                        android:id="@+id/et_Remark"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/way_bill_et_bg"
+                        android:focusable="true"
+                        android:maxLength="10"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:gravity="end"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btn_Save"
+                        android:fontFamily="@font/nunito_sans"
+                        android:textFontWeight="700"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:text="@string/save_data"/>
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
