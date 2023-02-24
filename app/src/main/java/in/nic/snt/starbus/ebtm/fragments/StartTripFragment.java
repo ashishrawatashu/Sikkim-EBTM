@@ -52,8 +52,8 @@ public class StartTripFragment extends Fragment implements View.OnClickListener 
         fragmentStartTripBinding = FragmentStartTripBinding.inflate(inflater, container, false);
         View view = fragmentStartTripBinding.getRoot();
 
-        initMethods();
-        setTripsList();
+       /* initMethods();
+        setTripsList();*/
         
         return view;
         

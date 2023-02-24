@@ -46,7 +46,7 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         View view = activitySplashBinding.getRoot();
         setContentView(view);
 
-        startActivity(new Intent(SplashActivity.this, TicketBookingDashActivity.class));
+        startActivity(new Intent(SplashActivity.this, StartAndPreviousTripListActivity.class));
         finish();
 
 
