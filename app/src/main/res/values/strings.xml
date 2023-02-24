@@ -83,5 +83,22 @@
     <string name="amount">Amount</string>
     <string name="remark">Remark</string>
     <string name="expensesEarnings"><![CDATA[Expenses & Earnings]]></string>
+    <string name="refund_amount">Refund amount</string>
+    <string name="give_refund">Give Refund</string>
+    <string name="yes_give_refund">Yes, Give refund</string>
+    <string name="please_select_one_option">Please select one option</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="cancel">Cancel</string>
+    <string name="total_collection">Total collection</string>
+    <string name="breakdown_time">Breakdown time</string>
+    <string name="trip_name">Trip name</string>
+    <string name="refund_status">Refund status</string>
+    <string name="previous_trips">Previous trip</string>
+    <string name="hello_blank_fragment">Helllo</string>
+    <string name="earning">Earning</string>
+    <string name="nav_header_desc">Navigation description</string>
+    <string name="enter_earning_details">Enter earning details</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>
