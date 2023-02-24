@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="5dp"
+        android:id="@+id/cardTopDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:paddingTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|bottom">
+                
+                <TextView
+                    android:fontFamily="@font/nunito_sans"
+                    android:id="@+id/ricjket_number_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:gravity="left|center_vertical"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:text="1117775534FGHJK"
+                    android:textSize="13dp" />
+              
+                <TextView
+                    android:fontFamily="@font/nunito_sans"
+                    android:id="@+id/ticket_amount_TV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="RS 500"
+                    android:gravity="right|center_vertical"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/nunito_sans"
+                    android:id="@+id/from_to_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dehradun ISBT to Delhi"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="4"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|bottom">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/refund_amount"
+                            android:fontFamily="@font/nunito_sans"
+                            android:textColor="@color/gray"
+                            android:textSize="11dp" />
+                        <TextView
+                            android:id="@+id/refund_amount_TV"
+                            android:layout_width="wrap_content"
+                            android:gravity="right|center_vertical"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="RS 200"
+                            android:fontFamily="@font/nunito_sans"
+                            android:textColor="@color/red"
+                            android:textSize="16dp"
+                            tools:ignore="RtlHardcoded" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/refund_ticket_BT"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textFontWeight="700"
+                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="65dp"
+                    android:text="@string/give_refund"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

@@ -243,7 +243,7 @@
 
                <com.google.android.material.card.MaterialCardView
                    android:layout_width="match_parent"
-                   android:visibility="gone"
+                   android:visibility="visible"
                    android:layout_margin="10dp"
                    android:id="@+id/way_bill_details_MCV"
                    app:cardElevation="10dp"

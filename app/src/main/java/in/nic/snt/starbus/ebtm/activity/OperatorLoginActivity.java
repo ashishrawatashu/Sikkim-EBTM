@@ -114,13 +114,15 @@ public class OperatorLoginActivity extends AppCompatActivity implements ApiRespo
                         OperatorLoginDetailsDao operatorLoginDetailsDao = db.operatorLoginDetailsDao();
                         operatorLoginDetailsDao.deleteWayBillWaybill();
                         operatorLoginDetailsDao.insertRecord(operatorLoginResponse.getResult().get(0));
-
-                        checkOperatorStatusForBoarding(operatorLoginResponse);
-
+                        Intent wayBillAssignmentIntent = new Intent(this, WayBillAssignmentActivity.class);
+                        startActivity(wayBillAssignmentIntent);
+//                        checkOperatorStatusForBoarding(operatorLoginResponse);
                     }else if (operatorLoginResponse.getCode().equals("102")) {
                         Toast.makeText(this, operatorLoginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                     }else if (operatorLoginResponse.getCode().equals("101")) {
                         Toast.makeText(this, operatorLoginResponse.getMsg(), Toast.LENGTH_SHORT).show();
+                    }else {
+                        commonMethods.pleaseTryAgainToast(this);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

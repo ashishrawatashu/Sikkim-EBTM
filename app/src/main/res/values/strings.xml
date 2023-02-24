@@ -83,5 +83,18 @@
     <string name="amount">Amount</string>
     <string name="remark">Remark</string>
     <string name="expensesEarnings"><![CDATA[Expenses & Earnings]]></string>
+    <string name="refund_status">Refund Status</string>
+    <string name="trip_name">Trip name</string>
+    <string name="breakdown_time">Breakdown Time</string>
+    <string name="total_passengers">Total passengers</string>
+    <string name="total_collection">Total collection</string>
+    <string name="give_refund">Give Refund</string>
+    <string name="refund_amount">Refund Amount</string>
+    <string name="confirmation">Confirmation !</string>
+    <string name="yes_give_refund">Yes, Give Refund</string>
+    <string name="please_select_one_option">Please select one option</string>
+    <string name="previous_trips">Previous trips</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

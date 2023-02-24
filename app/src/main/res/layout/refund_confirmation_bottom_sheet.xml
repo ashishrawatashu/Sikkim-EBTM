@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000000"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -18,40 +17,58 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_sans"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textFontWeight="500"
-                android:text="@string/are_you_sure"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:id="@+id/confirmation_TV"
+                    android:textFontWeight="500"
+                    android:text="@string/confirmation"/>
 
 
-            <TextView
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_sans"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textFontWeight="600"
-                android:text="@string/do_you_want_to_cancel_this_way_bill"/>
-
+                <TextView
+                    app:layout_constraintStart_toStartOf="@+id/confirmation_TV"
+                    app:layout_constraintTop_toBottomOf="@+id/confirmation_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textFontWeight="600"
+                    android:text="@string/please_select_one_option"/>
+                
+                
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    android:src="@drawable/cros"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:weightSum="2"
                 android:layout_height="wrap_content">
 
 
                 <RelativeLayout
-                    android:id="@+id/cancel_no_RL"
+                    android:id="@+id/no_deported_RL"
                     android:layout_weight="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +83,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/no"
+                        android:text="No, Deported from previous station"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/color_primary"/>
@@ -76,7 +93,7 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/cancel_yes_RL"
+                    android:id="@+id/yes_give_refund_RL"
                     android:layout_weight="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +111,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/yes"
+                        android:text="@string/yes_give_refund"
                         android:gravity="center"
                         android:textSize="16sp"
                         android:textColor="@color/white"/>
