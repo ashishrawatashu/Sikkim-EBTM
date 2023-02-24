@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.room.Room;
@@ -77,6 +78,11 @@ public class CommonMethods {
         DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyy HH:mm a");
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+
+    public  void pleaseTryAgainToast(Context context){
+        Toast.makeText(context, "Please try again", Toast.LENGTH_SHORT).show();
     }
 
 

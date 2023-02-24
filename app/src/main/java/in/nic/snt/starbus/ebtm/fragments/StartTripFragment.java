@@ -1,27 +1,29 @@
-package in.nic.snt.starbus.ebtm.activity;
+package in.nic.snt.starbus.ebtm.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.room.Room;
-
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.List;
+
 import in.nic.snt.starbus.ebtm.R;
+import in.nic.snt.starbus.ebtm.activity.SearchAnotherRouteActivity;
+import in.nic.snt.starbus.ebtm.activity.TicketBookingDashActivity;
 import in.nic.snt.starbus.ebtm.adapters.TripsListAdapter;
 import in.nic.snt.starbus.ebtm.adaptersOnClicks.TripsListOnClick;
-import in.nic.snt.starbus.ebtm.databinding.ActivityConductorDashBinding;
+import in.nic.snt.starbus.ebtm.databinding.FragmentStartTripBinding;
 import in.nic.snt.starbus.ebtm.databinding.StartTripConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentTripsModel;
@@ -31,36 +33,36 @@ import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.MachineCurrentStatusDa
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.TripsDao;
 import in.nic.snt.starbus.ebtm.utils.CommonMethods;
 
-public class ConductorDashActivity extends AppCompatActivity implements View.OnClickListener , TripsListOnClick {
+public class StartTripFragment extends Fragment implements View.OnClickListener , TripsListOnClick {
 
-    private ActivityConductorDashBinding activityConductorDashBinding;
+    FragmentStartTripBinding fragmentStartTripBinding;
     private AppDatabase db;
-    
+
     StartTripConfirmationDialogBinding startTripConfirmationDialogBinding;
     BottomSheetDialog startTripBottomSheet;
 
     CommonMethods commonMethods;
     boolean  exit = false;
     TripsModel tripsModel;
+    
+    
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        activityConductorDashBinding = ActivityConductorDashBinding.inflate(getLayoutInflater());
-        View view = activityConductorDashBinding.getRoot();
-        setContentView(view);
-
-
-        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
-        commonMethods = new CommonMethods(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        fragmentStartTripBinding = FragmentStartTripBinding.inflate(inflater, container, false);
+        View view = fragmentStartTripBinding.getRoot();
 
         initMethods();
         setTripsList();
-
+        
+        return view;
+        
+       
+        
     }
 
     private void initMethods() {
-        activityConductorDashBinding.createNewTripBT.setOnClickListener(this);
+        fragmentStartTripBinding.createNewTripBT.setOnClickListener(this);
     }
 
     private void setTripsList() {
@@ -68,10 +70,10 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
         TripsDao tripsDao = db.tripsDao();
         List<TripsModel> tripsModelList = tripsDao.getTrips();
 
-        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this);
-        activityConductorDashBinding.listViewTrips.setLayoutManager(linearLayoutManager);
-        TripsListAdapter tripsAdapter = new TripsListAdapter(this,tripsModelList,this);
-        activityConductorDashBinding.listViewTrips.setAdapter(tripsAdapter);
+        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext());
+        fragmentStartTripBinding.listViewTrips.setLayoutManager(linearLayoutManager);
+        TripsListAdapter tripsAdapter = new TripsListAdapter(getContext(),tripsModelList,this);
+        fragmentStartTripBinding.listViewTrips.setAdapter(tripsAdapter);
 
     }
 
@@ -82,7 +84,7 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()){
 
             case R.id.create_new_trip_BT:
-                startActivity(new Intent(ConductorDashActivity.this,SearchAnotherRouteActivity.class));
+                startActivity(new Intent(getContext(), SearchAnotherRouteActivity.class));
                 break;
 
             case R.id.start_trip_no_RL:
@@ -92,7 +94,7 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
             case R.id.start_trip_yes_RL:
                 if(tripsModel.getTripStatus().equals("D")){
 
-                    Toast.makeText(this, "This trips is disable ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "getContext() trips is disable ", Toast.LENGTH_LONG).show();
                 }else {
 
                     String currentDateTime = commonMethods.getDateTime();
@@ -122,9 +124,9 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
                     machineCurrentStatusDao.updateMachineCurrentStatus("2",currentDateTime);
 
 
-                    startActivity(new Intent(ConductorDashActivity.this, TicketBookingDashActivity.class));
+                    startActivity(new Intent(getContext(), TicketBookingDashActivity.class));
                     startTripBottomSheet.dismiss();
-                    Toast.makeText(this, "Trip Started Successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Trip Started Successfully", Toast.LENGTH_LONG).show();
 
                 }
                 break;
@@ -143,12 +145,12 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
     }
 
     private void showStartTripBottomSheet() {
-        startTripBottomSheet = new BottomSheetDialog(this);
+        startTripBottomSheet = new BottomSheetDialog(getContext());
         startTripBottomSheet.requestWindowFeature(Window.FEATURE_NO_TITLE);
         startTripBottomSheet.setCancelable(true);
         startTripBottomSheet.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-        startTripConfirmationDialogBinding = StartTripConfirmationDialogBinding.inflate(LayoutInflater.from(this));
+        startTripConfirmationDialogBinding = StartTripConfirmationDialogBinding.inflate(LayoutInflater.from(getContext()));
         startTripBottomSheet.setContentView(startTripConfirmationDialogBinding.getRoot());
 
         startTripConfirmationDialogBinding.startTripNoRL.setOnClickListener(this);
@@ -158,21 +160,5 @@ public class ConductorDashActivity extends AppCompatActivity implements View.OnC
         Window window = startTripBottomSheet.getWindow();
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     }
-
-    @Override
-    public void onBackPressed() {
-        if (exit) {
-            super.onBackPressed();
-            finishAffinity();
-        } else {
-            Toast.makeText(this, "Press Back again to Exit.", Toast.LENGTH_LONG).show();
-            exit = true;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    exit = false;
-                }
-            }, 2000);
-        }
-    }
+    
 }

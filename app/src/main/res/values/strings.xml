@@ -77,19 +77,11 @@
     <string name="do_you_want_to_change_current_station">Do you want to change current station ?</string>
     <string name="print">Print</string>
     <string name="close">CLOSE</string>
-    <string name="nav_header_desc">Navigation header</string>
     <string name="expense">Expense</string>
     <string name="save_data">Save</string>
     <string name="enter_expense_details">Enter expenses details</string>
     <string name="amount">Amount</string>
     <string name="remark">Remark</string>
     <string name="expensesEarnings"><![CDATA[Expenses & Earnings]]></string>
-    <string name="earning">Earning</string>
-    <string name="enter_earning_details">Enter earning details</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="dialog_title">Please Confirm</string>
-    <string name="dialog_message">Are you wat to save this details ?</string>
-    <string name="cancel">Cancel</string>
 
 </resources>
