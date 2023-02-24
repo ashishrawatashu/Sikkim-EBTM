@@ -24,7 +24,6 @@ public class PreviousTripsFragment extends Fragment {
         View view = fragmentPreviousTripsBinding.getRoot();
 
 
-
         return view;
 
     }

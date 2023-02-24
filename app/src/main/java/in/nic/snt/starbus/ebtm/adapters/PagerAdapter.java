@@ -13,9 +13,6 @@ import in.nic.snt.starbus.ebtm.fragments.StartTripFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {
 
-    private Context myContext;
-    int totalTabs;
-
     public PagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
@@ -24,10 +21,9 @@ public class PagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-
-            case 1:
+            case 0:
                 return new StartTripFragment();
-            case 2:
+            case 1:
                 return new PreviousTripsFragment();
             default:
                 return new StartTripFragment();
