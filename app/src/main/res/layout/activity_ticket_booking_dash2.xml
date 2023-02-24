@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/bg_grey"
+    android:layout_height="match_parent"
+    tools:context=".activity.TicketBookingDashActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_primary"
+        android:elevation="20dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/color_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/conductor_dashboard"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/log_out_IV"
+            android:layout_marginEnd="10dp"
+            android:layout_width="50dp"
+            android:padding="5dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logout_icon"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/station_list_LL"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toTopOf="@id/close_trip"
+        android:layout_height="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/from_station_RV"
+            android:layout_weight="1"
+            tools:listitem="@layout/ticket_booking_station_list_item"
+            android:layout_width="0dp"
+            tools:itemCount="5"
+            android:layout_height="match_parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/to_station_RV"
+            android:layout_weight="1"
+            tools:itemCount="5"
+            tools:listitem="@layout/ticket_booking_station_list_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/station_list_LL">
+
+        <Button
+            android:id="@+id/select_psg_BT"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/passenger"
+            android:fontFamily="@font/nunito_sans"
+            android:textFontWeight="700"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"/>
+
+        <Button
+
+            android:id="@+id/select_lug_BT"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/lug"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/nunito_sans"
+            android:textFontWeight="700"
+            android:layout_width="80dp"
+            android:layout_height="65dp"/>
+
+        <Button
+            android:id="@+id/select_concession_BT"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/concession"
+            android:fontFamily="@font/nunito_sans"
+            android:textFontWeight="700"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/close_trip"
+        android:text="   CLOSE TRIP   "
+        android:backgroundTint="@color/red"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

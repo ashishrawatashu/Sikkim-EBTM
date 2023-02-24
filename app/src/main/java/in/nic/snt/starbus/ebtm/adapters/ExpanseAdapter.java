@@ -1,12 +1,16 @@
 package in.nic.snt.starbus.ebtm.adapters;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import in.nic.snt.starbus.ebtm.R;
 import in.nic.snt.starbus.ebtm.adaptersOnClicks.ExpenseListOnClick;
 import in.nic.snt.starbus.ebtm.databinding.CustomExpanseListBinding;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.ExpensesEarningModel;
@@ -23,6 +28,7 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseL
     Context context;
     List<ExpensesEarningModel> expenseModelsList;
     ExpenseListOnClick expenseListOnClick;
+    AlertDialog.Builder builder;
 
 
     public ExpanseAdapter(Context context, List<ExpensesEarningModel> expenseModels, ExpenseListOnClick expenseListOnClick) {
@@ -41,62 +47,39 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseL
     public void onBindViewHolder(@NonNull ExpanseAdapter.ExpenseListAdapterViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
-        //if( expenseModelsList.get(position).getType().equalsIgnoreCase(""))
-        holder.customExpanseListBinding.tvExpenseName.setText(expenseModelsList.get(position).getName().toString());
 
+        if( expenseModelsList.get(position).getType().equalsIgnoreCase("EX")) {
+            holder.customExpanseListBinding.tvExpenseName.setText(expenseModelsList.get(position).getName().toString());
+        }
         holder.customExpanseListBinding.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (expenseListOnClick != null) {
 
-                    int v = (holder.customExpanseListBinding.llExpandDetails.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+                    /*int v = (holder.customExpanseListBinding.llExpandDetails.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
                     TransitionManager.beginDelayedTransition(holder.customExpanseListBinding.card, new AutoTransition());
-                    holder.customExpanseListBinding.llExpandDetails.setVisibility(v);
-                    holder.customExpanseListBinding.imgDownArrow.setRotation(holder.customExpanseListBinding.imgDownArrow.getRotation() + 180);
+                    holder.customExpanseListBinding.llExpandDetails.setVisibility(v);*/
+
+                    //holder.customExpanseListBinding.imgDownArrow.setRotation(holder.customExpanseListBinding.imgDownArrow.getRotation() + 180);
+                    expenseListOnClick.selectCard(position, expenseModelsList.get(position));
 
                 }
             }
+
+
+
+
         });
 
-        holder.customExpanseListBinding.btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (expenseListOnClick != null) {
-                    if(holder.customExpanseListBinding.etAmount.getText().toString().isEmpty())
-                    {
-                        Toast.makeText(context,"Enter Amount",Toast.LENGTH_LONG).show();
-                        return;
 
-                    }
-                    if(holder.customExpanseListBinding.etAmount.getText().toString().trim().equalsIgnoreCase("0"))
-                    {
-                        Toast.makeText(context,"Amount Should be greater then Zero",Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    if(holder.customExpanseListBinding.etRemark.getText().toString().isEmpty())
-                    {
-                        Toast.makeText(context,"Enter Remark",Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                    if(holder.customExpanseListBinding.etAmount.getText().toString().trim().length() > 2 )
-                    {
-                        Toast.makeText(context,"Remark length should be more then two alphabet",Toast.LENGTH_LONG).show();
-                        return;
-
-                    }
-
-
-                    expenseListOnClick.selectSaveExpense(position, expenseModelsList.get(position), holder.customExpanseListBinding.etAmount.getText().toString(), holder.customExpanseListBinding.etRemark.getText().toString().trim());
-                    Toast.makeText(context,"Click",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
+
+
 
 
     @Override
     public int getItemCount() {
+
         return expenseModelsList.size();
     }
 
@@ -107,6 +90,10 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.ExpenseL
             super(expenseListBinding.getRoot());
             this.customExpanseListBinding = expenseListBinding;
         }
+
+
     }
+
+
 
 }

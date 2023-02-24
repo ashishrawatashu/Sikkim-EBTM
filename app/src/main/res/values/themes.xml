@@ -19,4 +19,17 @@
         <item name="android:minHeight">1dip</item>
         <item name="android:maxHeight">1dip</item>
     </style>
+
+    <style name="Theme.SNTSikkimEBTM.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Toolbar.TitleText.Dash" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20dp</item>
+    </style>
 </resources>

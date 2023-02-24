@@ -21,9 +21,11 @@ public interface ExpensesEarningsDao {
     @Query("SELECT * FROM expenses_earning")
     List<ExpensesEarningModel> getExpensesEarning();
 
-    @Query("SELECT * FROM expenses_earning WHERE id = :id")
-    List<ExpensesEarningModel> getExpensesEarningId(int id);
+    @Query("SELECT * FROM expenses_earning WHERE type= 'EX'")
+    List<ExpensesEarningModel> getExpenses();
 
+    @Query("SELECT * FROM expenses_earning WHERE type= 'ER'")
+    List<ExpensesEarningModel> getEarning();
 
     @Query("DELETE FROM expenses_earning")
     void deleteExpensesEarning();

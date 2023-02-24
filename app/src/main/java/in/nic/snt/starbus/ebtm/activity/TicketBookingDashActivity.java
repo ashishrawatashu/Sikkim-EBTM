@@ -1,23 +1,22 @@
 package in.nic.snt.starbus.ebtm.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.room.Room;
-
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.room.Room;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,24 +24,20 @@ import java.util.List;
 import in.nic.snt.starbus.ebtm.R;
 import in.nic.snt.starbus.ebtm.adapters.TicketBookingFromStationAdapter;
 import in.nic.snt.starbus.ebtm.adapters.TicketBookingToStationAdapter;
-import in.nic.snt.starbus.ebtm.adaptersOnClicks.StationOnClickInDashBoard;
 import in.nic.snt.starbus.ebtm.databinding.ActivityTicketBookingDashBinding;
 import in.nic.snt.starbus.ebtm.databinding.ChnageStationStateConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.databinding.CloseTripConfirmationDialogBinding;
 import in.nic.snt.starbus.ebtm.databinding.PsgDialogLayoutBinding;
 import in.nic.snt.starbus.ebtm.models.StationsModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.AppDatabase;
-import in.nic.snt.starbus.ebtm.roomDataBase.entities.CurrentTripsModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.RouteFareModel;
 import in.nic.snt.starbus.ebtm.roomDataBase.entities.RoutesStationModel;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentTripsDao;
 import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.CurrentUserLoginStatusDao;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.RouteFareDao;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.RoutesStationDao;
-import in.nic.snt.starbus.ebtm.roomDataBase.tablesQueries.TripsDao;
 import in.nic.snt.starbus.ebtm.utils.CommonMethods;
 
-public class TicketBookingDashActivity extends AppCompatActivity implements View.OnClickListener, StationOnClickInDashBoard {
+public class TicketBookingDashActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    /*implements View.OnClickListener, StationOnClickInDashBoard*/
 
 
     ActivityTicketBookingDashBinding                        activityTicketBookingDashBinding;
@@ -90,14 +85,57 @@ public class TicketBookingDashActivity extends AppCompatActivity implements View
         commonMethods = new CommonMethods(this);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
 
-        getTripDetails();
 
-        initMethod();
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.setTitle(getResources().getString(R.string.conductor_dashboard));
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View mHeaderView =  navigationView.getHeaderView(0);
+
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        /*getTripDetails();
+
+        initMethod();*/
 
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
 
-    private void getAllStationByRouteId(int routeId) {
+        if (id == R.id.nav_expense) {
+            //class_ConnectionRelated.setDefaultSharedPreferences(getApplicationContext());
+            Intent ii = new Intent(TicketBookingDashActivity.this, ExpenseActivity.class);
+            startActivity(ii);
+        }  else if (id == R.id.nav_earning) {
+            Intent ii = new Intent(TicketBookingDashActivity.this, EarningActivity.class);
+            startActivity(ii);
+        }  else if (id == R.id.nav_logout) {
+            CurrentUserLoginStatusDao currentUserLoginStatusDao = db.currentUserLoginStatusDao();
+            currentUserLoginStatusDao.updateUserLoginStatus("N");
+            startActivity(new Intent(this, OperatorLoginActivity.class));
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+
+
+/*    private void getAllStationByRouteId(int routeId) {
 
         RoutesStationDao routesStationDao = db.routesStationDao();
         routesStationModelList = routesStationDao.getRoutesStationByRouteId(routeId);
@@ -408,5 +446,5 @@ public class TicketBookingDashActivity extends AppCompatActivity implements View
         changeStateBottomSheet.show();
         Window window = changeStateBottomSheet.getWindow();
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-    }
+    }*/
 }

@@ -46,9 +46,11 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         View view = activitySplashBinding.getRoot();
         setContentView(view);
 
+        startActivity(new Intent(SplashActivity.this, TicketBookingDashActivity.class));
+        finish();
 
 
-        JavaToCSharpAES javaToCSharpAES = new JavaToCSharpAES();
+        /*JavaToCSharpAES javaToCSharpAES = new JavaToCSharpAES();
         try {
             Log.e("WORD",javaToCSharpAES.Encryptt());
         } catch (Exception e) {
@@ -58,8 +60,7 @@ public class SplashActivity extends AppCompatActivity implements ApiResponse {
         commonMethods = new CommonMethods(this);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
         getDataUpdationLastDate();
-        checkMachineStatus();
-
+        checkMachineStatus();*/
     }
 
     private void getDataUpdationLastDate() {

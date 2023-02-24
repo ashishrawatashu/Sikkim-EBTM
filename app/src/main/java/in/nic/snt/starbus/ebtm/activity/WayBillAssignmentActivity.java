@@ -69,7 +69,7 @@ public class WayBillAssignmentActivity extends AppCompatActivity implements ApiR
         activityWayBillAssignmentBinding = ActivityWayBillAssignmentBinding.inflate(getLayoutInflater());
         View view = activityWayBillAssignmentBinding.getRoot();
         setContentView(view);
-        
+
         commonMethods = new CommonMethods(this);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
 

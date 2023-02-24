@@ -20,6 +20,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import in.nic.snt.starbus.ebtm.R;
@@ -102,6 +103,21 @@ public class CommonMethods {
 
     }
 
+    public int getActiveCode(Context context){
+        AppDatabase db;
+        db = Room.databaseBuilder(context, AppDatabase.class, context.getString(R.string.Sikkim_local_database_name)).allowMainThreadQueries().build();
+        CurrentTripsDao currentTripsDao = db.currentTripsDao();
+        CurrentTripsModel currentTripsModel = currentTripsDao.getIncompleteTripData();
+
+
+        return currentTripsModel.getTripNo();
+
+
+
+
+
+    }
+
 
     public void showCustomProgressBarDialog(Context context) {
         try {
@@ -158,6 +174,27 @@ public class CommonMethods {
             sb.append(hex);
         }
         return sb.toString();
+    }
+
+    public String getCurrentTimeAndDate()
+    {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+        String formattedDateTime = sdf.format(calendar.getTime());
+        System.out.println("Formatted date and time: " + formattedDateTime);
+
+
+       /* int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // Note: January is 0
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        String currentDateTime = String.format("%04d-%02d-%02d %02d:%02d:%02d", year, month, dayOfMonth, hour, minute, second);
+
+        System.out.println("Current date and time: " + currentDateTime);*/
+        return formattedDateTime;
     }
 
 
